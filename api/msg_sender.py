@@ -5,14 +5,13 @@ import requests
 
 CORPID = os.getenv("CORPID")
 CORPSECRET = os.getenv("CORPSECRET")
-TOKEN_TIMEOUT = 6000
+AGENT_ID = os.getenv("AGENT_ID")
+TOKEN_TIMEOUT = 6000  # get a new token after 6000 sec
 
 
 class WechatUtils():
     def __init__(self) -> None:
-        self._token_time = 1663856982.597988
-        # self.__token = None
-        self.__token = "9ddD4GuzJ9sqd2sXg005q-E8sKfcFx_z7Qa1b85KHszLTHSDVEB84ry9b-bHUBL8sPEmhC4uGjwwLawMZx1vhhK3IrBTfTmPqMgmaCOHzEhVae6bS7Rn2nEXEbKEB2X5ofYSsF3GdjNpYWksp_jIPJp4xggSvsvpgMSWPs9HZ-NoKbwdOypi8yuM_BJ9JevgE76vWgxZlyO64L-A17SDQg"
+        self.__token = None
 
     def send_text_msg(self, msg, user="1"):
         url = "https://qyapi.weixin.qq.com/cgi-bin/message/send"
@@ -20,7 +19,7 @@ class WechatUtils():
         data = {
             "touser": user,
             "msgtype": "text",
-            "agentid": 1000002,
+            "agentid": AGENT_ID,
             "text": {
                 "content": msg,
             },

@@ -3,4 +3,4 @@ services:
   main:
     image: wechat-api
     ports:
-      - "20222:20222"
+      - "20222:8000"
