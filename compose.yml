@@ -1,0 +1,6 @@
+version: "0.1"
+services:
+  main:
+    image: wechat-api
+    ports:
+      - "20222:20222"
