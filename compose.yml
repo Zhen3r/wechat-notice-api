@@ -1,6 +1,10 @@
-version: "0.1"
+version: '0.2'
 services:
   main:
     image: wechat-api
     ports:
-      - "20222:8000"
+      - 20222:8000
+    volumes:
+      - ./wechat.log:/usr/src/app/wechat.log
+    environment:
+      - TZ=Asia/Shanghai

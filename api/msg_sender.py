@@ -12,6 +12,7 @@ TOKEN_TIMEOUT = 6000  # get a new token after 6000 sec
 class WechatUtils():
     def __init__(self) -> None:
         self.__token = None
+        self._token_time = 0
 
     def send_text_msg(self, msg, user="1"):
         url = "https://qyapi.weixin.qq.com/cgi-bin/message/send"
@@ -43,7 +44,6 @@ class WechatUtils():
         now = time.time()
         if now - self._token_time >= TOKEN_TIMEOUT:
             self._token_time, self.__token = self._get_new_access_token()
-        print(self.__token)
         return self.__token
 
 
